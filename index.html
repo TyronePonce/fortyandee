@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 7th Monthsary, My Love!</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            font-family: 'Poppins', sans-serif;
+            overflow-y: auto;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1, p {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+        .hidden-content {
+            display: none;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .reveal-btn {
+            background: #ff5e78;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+        .reveal-btn:hover {
+            background: #ff3e58;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 90%;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .show {
+            display: block !important;
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <button class="reveal-btn" onclick="showContent()">Click for a Surprise! 🎁</button>
+    
+    <div id="hiddenContent" class="hidden-content">
+        <h1>Happy 7th Monthsary, My Love! 💖</h1>
+        <p>Seven months with you have been nothing short of amazing. You are my happiness, my peace, and my greatest blessing. I love you always! ❤️</p>
+        <p>Through every challenge, we grow stronger. I will always choose you. maw maw maw💕</p>
+        
+        <div class="slideshow-container">
+            <img class="slides" src="IMG_5.jpeg" alt="Photo 1">
+            <img class="slides" src="IMG_6.jpeg" alt="Photo 2">
+            <img class="slides" src="IMG_6805.jpeg" alt="Photo 3">
+        </div>
+        
+        <audio id="backgroundMusic" autoplay loop>
+            <source src="https://TyronePonce.github.io/fortyandee/music/when_i_met_you.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <script>
+        function showContent() {
+            document.getElementById("hiddenContent").style.display = "block";
+            let audio = document.getElementById("backgroundMusic");
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
+            showSlides();
+        }
+        
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+</body>
+</html>
